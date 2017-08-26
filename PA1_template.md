@@ -23,7 +23,7 @@ data1<- mydata %>% group_by(date) %>% summarise(steps=sum(steps,na.rm=TRUE))
 data1<-transform(data1, date=strptime(date, format="%Y-%m-%d"))
 qplot(data1$steps, geom = 'histogram', bins = 30 )+labs(x= "total number of steps taken each day")
 ```
-[](https://github.com/nomiinee/RepData_PeerAssessment1/blob/assignment/directory/plot1.png?raw=true)
+![](https://github.com/nomiinee/RepData_PeerAssessment1/blob/assignment/directory/plot1.png?raw=true)
 
 # What is the average daily activity pattern?
 ```sh
