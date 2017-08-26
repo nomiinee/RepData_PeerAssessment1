@@ -31,7 +31,7 @@ avgPattern<- mydata %>% group_by(interval) %>% summarise(steps=mean(steps, na.rm
 ggplot(data = avgPattern, aes(x=interval, y = steps)) + geom_line()+labs(x = "Average steps", y="5 minute interval")
 avgPattern[avgPattern$steps == max(avgPattern$steps),]
 ```
-[](https://github.com/nomiinee/RepData_PeerAssessment1/blob/assignment/directory/plot2.png?raw=true)
+![](https://github.com/nomiinee/RepData_PeerAssessment1/blob/assignment/directory/plot2.png?raw=true)
 # Imputing missing values
 ```sh
 missingVal <- is.na(mydata$steps)
@@ -44,7 +44,7 @@ ggplot(data= newTotal, aes(x=date,y=steps, fill= as.POSIXlt(date)$wday), width =
 newmeanPDay<- mean(newTotal$steps)
 newmedPDay<- median(newTotal$steps)
 ```
-[](https://github.com/nomiinee/RepData_PeerAssessment1/blob/assignment/directory/plot3.png?raw=true)
+![](https://github.com/nomiinee/RepData_PeerAssessment1/blob/assignment/directory/plot3.png?raw=true)
 # Are there differences in activity patterns between weekdays and weekends?
 ```
 fdata<-newdata %>% mutate( weekends.or.weekdays = as.POSIXlt(newdata$date)$wday)
@@ -52,6 +52,6 @@ fdata$weekends.or.weekdays<-ifelse(fdata$weekends.or.weekdays %in% c(0,6), 'Week
 result <- aggregate(steps ~ interval+ weekends.or.weekdays , data=fdata, mean)
 ggplot(aes(interval, steps),data = result) +facet_grid( weekends.or.weekdays~.)+geom_line()
 ```
-[](https://github.com/nomiinee/RepData_PeerAssessment1/blob/assignment/directory/plot4.png?raw=true)
+![](https://github.com/nomiinee/RepData_PeerAssessment1/blob/assignment/directory/plot4.png?raw=true)
 
 
